@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         unbounded: ["Unbounded", "cursive"],
+        kanit: ["Kanit", "sans-serif"],
       },
     },
   },

@@ -1,4 +1,5 @@
 import React from "react";
+import { Todo } from "./components/Todo";
 
 const App: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const App: React.FC = () => {
           Taskly
         </h1>
       </span>
+      <Todo />
     </div>
   );
 };
