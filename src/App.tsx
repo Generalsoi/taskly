@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Todo } from "./components/Todo";
 
 const App: React.FC = () => {
+  const [task, setTask] = useState<string>("");
+
+  console.log(task);
+
   return (
     <div className="">
       <span className="text-center p-10">
@@ -9,7 +13,7 @@ const App: React.FC = () => {
           Taskly
         </h1>
       </span>
-      <Todo />
+      <Todo task={task} setTask={setTask} />
     </div>
   );
 };
