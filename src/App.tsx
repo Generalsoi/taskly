@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Todos } from "./components/Todos";
+import { Todo } from "./components/model";
+import { TodoList } from "./components/TodoList";
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAddTask = () => {
-    setTodos([...todos, task]);
+  const handleAddTask = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (task) {
+      setTodos([...todos, { id: Date.now(), todo: task, isDone: false }]);
+      setTask("");
+    }
   };
 
   // console.log(task);
@@ -18,12 +24,9 @@ const App: React.FC = () => {
           Taskly
         </h1>
       </span>
-      <Todos
-        task={task}
-        setTask={setTask}
-        handleAddTask={handleAddTask}
-        todos={todos}
-      />
+      <Todos task={task} setTask={setTask} handleAddTask={handleAddTask} />
+
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };
