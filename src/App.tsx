@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Todo } from "./components/Todo";
+import { Todos } from "./components/Todos";
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
 
-  console.log(task);
+  const handleAddTask = () => {
+    setTodos([...todos, task]);
+  };
+
+  // console.log(task);
 
   return (
     <div className="">
@@ -13,7 +18,12 @@ const App: React.FC = () => {
           Taskly
         </h1>
       </span>
-      <Todo task={task} setTask={setTask} />
+      <Todos
+        task={task}
+        setTask={setTask}
+        handleAddTask={handleAddTask}
+        todos={todos}
+      />
     </div>
   );
 };
