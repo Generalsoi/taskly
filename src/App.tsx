@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Todos } from "./components/Todos";
 import { Todo } from "./components/model";
 import { TodoList } from "./components/TodoList";
@@ -11,6 +11,7 @@ const App: React.FC = () => {
     e.preventDefault();
     if (task) {
       setTodos([...todos, { id: Date.now(), todo: task, isDone: false }]);
+      localStorage.setItem("todosList", JSON.stringify(todos));
       setTask("");
     }
   };

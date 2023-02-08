@@ -32,7 +32,7 @@ export const TodoList: FC<Props> = ({ todos, setTodos }) => {
         >
           <form className=" flex items-center justify-between">
             {todo.isDone ? (
-              <s>{todo.todo}</s>
+              <s className="w-[70%] break-words">{todo.todo}</s>
             ) : (
               <span className="w-[70%] break-words">{todo.todo}</span>
             )}
