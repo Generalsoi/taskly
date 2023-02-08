@@ -11,7 +11,7 @@ const App: React.FC = () => {
     e.preventDefault();
     if (task) {
       setTodos([...todos, { id: Date.now(), todo: task, isDone: false }]);
-      setTask(" ");
+      setTask("");
     }
   };
 

@@ -7,7 +7,7 @@ interface Props {
   handleAddTask: (e: React.FormEvent) => void;
 }
 
-export const Todos: FC<Props> = ({ setTask, handleAddTask }) => {
+export const Todos: FC<Props> = ({ task, setTask, handleAddTask }) => {
   return (
     <div>
       <form
@@ -18,6 +18,7 @@ export const Todos: FC<Props> = ({ setTask, handleAddTask }) => {
       >
         <input
           type="text"
+          value={task}
           placeholder="Enter task"
           className="w-full md:w-[50%] h-10 p-2 border-none rounded-xl focus:border-none text-black"
           onChange={(e) => setTask(e.target.value)}
