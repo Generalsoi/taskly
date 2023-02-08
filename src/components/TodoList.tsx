@@ -22,16 +22,20 @@ export const TodoList: FC<Props> = ({ todos, setTodos }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
   return (
-    <div className="md:flex flex-wrap items-center justify-center gap-10 p-6 md:p-10">
+    <div className="md:flex flex-wrap items-centers gap-10 p-6 md:p-10">
       {todos.map((todo) => (
         <li
           key={todo.id}
-          className={`w-full md:w-[30%] h-16 border-none rounded-lg ${
+          className={`w-full md:w-[30%] h-fit  border-none rounded-lg ${
             todo.isDone ? "bg-[#CFB997]" : "bg-[#7B8FA1]"
           } text-white list-none p-4 mt-6 md:mt-0`}
         >
           <form className=" flex items-center justify-between">
-            {todo.isDone ? <s>{todo.todo}</s> : <span>{todo.todo}</span>}
+            {todo.isDone ? (
+              <s>{todo.todo}</s>
+            ) : (
+              <span className="w-[70%] break-words">{todo.todo}</span>
+            )}
             <div className="flex items-center gap-3">
               <AiOutlineDelete
                 className="cursor-pointer"
